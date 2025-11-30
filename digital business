@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOCTURNE - Affordable Gothic Fashion</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #e0e0e0;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: #8b0000;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #8b0000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #660000;
+        }
+        
+        .btn-purple {
+            background-color: #6a0dad;
+        }
+        
+        .btn-purple:hover {
+            background-color: #5a0b9d;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #111;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links li:last-child {
+            font-weight: bold;
+            color: #8b0000;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23111"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23333" stroke-width="1"/></svg>');
+            background-size: cover;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+        }
+        
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+        
+        /* Trust Indicators */
+        .trust-indicators {
+            background-color: #111;
+            padding: 30px 0;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+        
+        .trust-grid {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .trust-item {
+            margin: 10px 20px;
+        }
+        
+        .stars {
+            color: #ffd700;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .testimonial {
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        
+        .customer-count {
+            font-weight: bold;
+            color: #8b0000;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: #111;
+        }
+        
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        
+        .about p {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+        
+        .highlight {
+            color: #8b0000;
+            font-weight: bold;
+        }
+        
+        .quality-tagline {
+            text-align: center;
+            font-size: 22px;
+            margin: 40px 0;
+            color: #6a0dad;
+            font-weight: bold;
+        }
+        
+        /* Collections Section */
+        .collections {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+        }
+        
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .collection-item {
+            background-color: #111;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: transform 0.3s;
+        }
+        
+        .collection-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .collection-item h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .collection-item p {
+            margin-bottom: 20px;
+            color: #aaa;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background-color: #111;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: #0a0a0a;
+            border: 1px solid #333;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            background-color: #222;
+        }
+        
+        .product-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .product-card .price {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #8b0000;
+        }
+        
+        .product-card .details {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: #111;
+            padding: 30px;
+            border: 1px solid #333;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: """;
+            font-size: 60px;
+            color: #6a0dad;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            opacity: 0.3;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            text-align: right;
+        }
+        
+        /* New Arrivals Section */
+        .new-arrivals {
+            padding: 80px 0;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: #111;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        /* Cart Section */
+        .cart {
+            padding: 80px 0;
+            display: none;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #333;
+            margin-bottom: 20px;
+        }
+        
+        .cart-total {
+            text-align: right;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+        
+        /* Checkout Section */
+        .checkout {
+            padding: 80px 0;
+            background-color: #111;
+            display: none;
+        }
+        
+        .checkout-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            background-color: #0a0a0a;
+            border: 1px solid #333;
+            color: #e0e0e0;
+        }
+        
+        .order-summary {
+            background-color: #0a0a0a;
+            padding: 20px;
+            margin-top: 30px;
+            border: 1px solid #333;
+        }
+        
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-weight: bold;
+        }
+        
+        /* Confirmation Section */
+        .confirmation {
+            padding: 80px 0;
+            text-align: center;
+            display: none;
+        }
+        
+        .confirmation h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid #333;
+            font-size: 14px;
+            color: #777;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links li {
+                margin: 5px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .trust-grid {
+                flex-direction: column;
+            }
+            
+            .trust-item {
+                margin: 15px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">NOCTURNE</div>
+                <ul class="nav-links">
+                    <li><a href="#" onclick="showSection('home')">RIP</a></li>
+                    <li><a href="#" onclick="showSection('about')">ABOUT US</a></li>
+                    <li><a href="#" onclick="showSection('shop')">SHOP ALL</a></li>
+                    <li><a href="#" onclick="showSection('new')">NEW ARRIVALS</a></li>
+                    <li><a href="#" onclick="showSection('contact')">CONTACT US!</a></li>
+                    <li>NOCTURNE</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home-section">
+        <h1>RIP</h1>
+        <p>NOCTURNE</p>
+        <a href="#" class="btn btn-purple" onclick="showSection('shop')">SHOP NOW</a>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="trust-indicators">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="stars">★★★★★</div>
+                    <div class="customer-count">Trusted by 200+ customers</div>
+                </div>
+                <div class="trust-item">
+                    <div class="testimonial">"Helping you succeed with confidence."</div>
+                </div>
+                <div class="trust-item">
+                    <div class="quality-tagline">Affordable quality you can trust.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about-section" style="display: none;">
+        <div class="container">
+            <h2>NOCTURNE<br>ABOUT US!</h2>
+            <p>AT <span class="highlight">NOCTURNE</span>, WE MAKE GOTHIC STYLE ACCESSIBLE.</p>
+            <p>WHILE OTHERS LIMIT THEIR COLLECTIONS AND RAISE PRICES, WE FOCUS ON MORE SELECTION, <span class="highlight">FAIR PRICING</span>, AND <span class="highlight">GENUINE QUALITY</span>.</p>
+            <p>OUR CATALOG SPANS EVERYTHING FROM CLASSIC GOTHIC ESSENTIALS TO MODERN ALT DESIGNS - ALL CURATED TO HELP YOU EXPRESS YOUR STYLE WITHOUT COMPROMISE.</p>
+            <p>WE'RE HERE FOR THE COMMUNITY, NOT THE TREND. DARK STYLE, DONE RIGHT.</p>
+            
+            <div class="quality-tagline">Affordable quality you can trust.</div>
+        </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section class="collections" id="shop-section" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">SHOP ALL</h2>
+            <p style="text-align: center; margin-bottom: 40px;">BROWSE OUR CURATED COLLECTIONS:</p>
+            <div class="collection-grid">
+                <div class="collection-item">
+                    <h3>CLOTHING</h3>
+                    <p>DARK ESSENTIALS AND LUXURIOUS FABRICS</p>
+                    <a href="#" class="btn" onclick="showSection('clothing')">EXPLORE</a>
+                </div>
+                <div class="collection-item">
+                    <h3>SHOES</h3>
+                    <p>DURABLE CONSTRUCTION, UNCOMPROMISING HEIGHT</p>
+                    <a href="#" class="btn" onclick="showSection('shoes')">EXPLORE</a>
+                </div>
+                <div class="collection-item">
+                    <h3>ACCESSORIES</h3>
+                    <p>THE PERFECT DARK ACCENTS FOR ANY OUTFIT</p>
+                    <a href="#" class="btn" onclick="showSection('accessories')">EXPLORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="clothing-section" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">CLOTHING COLLECTION</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div style="background-color: #222; height: 200px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                        <span>BLACK LACE DRESS IMAGE</span>
+                    </div>
+                    <h3>BLACK LACE DRESS</h3>
+                    <div class="price">£39.99</div>
+                    <div class="details">AVAILABLE IN SIZES XS-XL</div>
+                    <button class="btn" onclick="addToCart('Black Lace Dress', 39.99)">ADD TO CART</button>
+                </div>
+                <!-- Additional clothing products would go here -->
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="shoes-section" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">FOOTWEAR & BOOTS</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div style="background-color: #222; height: 200px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                        <span>CHUNKY PLATFORM BOOTS IMAGE</span>
+                    </div>
+                    <h3>CHUNKY PLATFORM BOOTS</h3>
+                    <div class="price">£69.99</div>
+                    <div class="details">VEGAN LEATHER FINISH, 4-INCH HEEL</div>
+                    <button class="btn" onclick="addToCart('Chunky Platform Boots', 69.99)">ADD TO CART</button>
+                </div>
+                <!-- Additional footwear products would go here -->
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="accessories-section" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">ACCESSORIES</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div style="background-color: #222; height: 200px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                        <span>SILVER COFFIN NECKLACE IMAGE</span>
+                    </div>
+                    <h3>SILVER COFFIN NECKLACE</h3>
+                    <div class="price">£9.99</div>
+                    <div class="details">STAINLESS STEEL, 18-INCH CHAIN</div>
+                    <button class="btn" onclick="addToCart('Silver Coffin Necklace', 9.99)">ADD TO CART</button>
+                </div>
+                <!-- Additional accessory products would go here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">WHAT OUR CUSTOMERS SAY</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "I've been shopping at Nocturne for over a year now and their quality never disappoints. The pieces are unique and affordable, which is rare in gothic fashion."
+                    </div>
+                    <div class="testimonial-author">- Raven D.</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Finally found a gothic brand that doesn't break the bank! The velvet choker is my new favorite accessory. Fast shipping and great customer service too."
+                    </div>
+                    <div class="testimonial-author">- Luna M.</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "As someone new to alternative fashion, Nocturne made it so easy to find pieces that fit my style. Their size range is inclusive and the quality is amazing for the price."
+                    </div>
+                    <div class="testimonial-author">- Alex T.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrivals Section -->
+    <section class="new-arrivals" id="new-section" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">NEW ARRIVALS</h2>
+            <p style="text-align: center; margin-bottom: 40px;">CHECK OUT OUR NEWEST, MOST AFFORDABLE<br>GOTHIC ESSENTIALS ADDED THIS WEEK!</p>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div style="background-color: #222; height: 200px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                        <span>VELVET CHOKER IMAGE</span>
+                    </div>
+                    <h3>VELVET CHOKER</h3>
+                    <div class="price">£14.99</div>
+                    <button class="btn" onclick="addToCart('Velvet Choker', 14.99)">ADD TO CART</button>
+                </div>
+                <!-- Additional new arrival products would go here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact-section" style="display: none;">
+        <div class="container">
+            <h2>CONTACT US!</h2>
+            <div class="contact-info">
+                <p>Email: <span class="highlight">Nocturne@gmail.com</span></p>
+                <p>TEL: <span class="highlight">1234456789</span></p>
+            </div>
+            <p>FOR ANY QUESTIONS ABOUT:</p>
+            <p>SHIPPING • ADVICE • APPLICATIONS</p>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart" id="cart-section">
+        <div class="container">
+            <h2 class="section-title">SHOPPING CART</h2>
+            <div id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="cart-total">
+                <p>TOTAL: £<span id="cart-total">0.00</span></p>
+                <button class="btn" onclick="showSection('checkout')">CHECKOUT</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Section -->
+    <section class="checkout" id="checkout-section">
+        <div class="container">
+            <h2 class="section-title">ORDER CONFIRMATION</h2>
+            <p style="text-align: center; margin-bottom: 40px;">REVIEW YOUR AFFORDABLE ITEMS AND ENTER YOUR DETAILS.</p>
+            
+            <div class="checkout-form">
+                <h3 style="margin-bottom: 20px;">SHIPPING INFORMATION</h3>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Your full name">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" placeholder="Your shipping address">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Your email address">
+                </div>
+                
+                <h3 style="margin-top: 40px; margin-bottom: 20px;">PAYMENT DETAILS</h3>
+                <div class="form-group">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX">
+                </div>
+                <div class="form-group">
+                    <label for="expiry">Expiry Date</label>
+                    <input type="text" id="expiry" placeholder="MM/YY">
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" placeholder="XXX">
+                </div>
+                
+                <div class="order-summary">
+                    <h3 style="margin-bottom: 20px;">ORDER SUMMARY</h3>
+                    <div id="checkout-items">
+                        <!-- Checkout items will be dynamically added here -->
+                    </div>
+                    <div class="order-total">
+                        <span>TOTAL:</span>
+                        <span>£<span id="checkout-total">0.00</span></span>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 20px; font-size: 14px; color: #aaa;">YOUR INFORMATION WILL NOT BE SAVED. THIS IS A SECURE, SIMULATED PAYMENT PROCESS.</p>
+                
+                <button class="btn" style="width: 100%; margin-top: 30px;" onclick="showSection('confirmation')">CONFIRM & PAY NOW</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confirmation Section -->
+    <section class="confirmation" id="confirmation-section">
+        <div class="container">
+            <h2>ORDER CONFIRMED!</h2>
+            <p style="font-size: 24px; margin-bottom: 30px;">YOUR ITEMS ARE ON THEIR WAY. THANK YOU FOR EMBRACING AFFORDABLE GOTHIC STYLE!</p>
+            <a href="#" class="btn" onclick="showSection('home')">RETURN TO HOME</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 NOCTURNE. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Cart data
+        let cart = [];
+        
+        // Show specific section and hide others
+        function showSection(section) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(sec => {
+                sec.style.display = 'none';
+            });
+            
+            // Show the selected section
+            document.getElementById(section + '-section').style.display = 'block';
+            
+            // Special handling for cart section
+            if (section === 'cart') {
+                updateCartDisplay();
+            }
+            
+            // Special handling for checkout section
+            if (section === 'checkout') {
+                updateCheckoutDisplay();
+            }
+            
+            // Scroll to top when changing sections
+            window.scrollTo(0, 0);
+        }
+        
+        // Add item to cart
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            alert(`${name} added to cart!`);
+            updateCartDisplay();
+        }
+        
+        // Update cart display
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            
+            // Clear current items
+            cartItems.innerHTML = '';
+            
+            // Add items to cart display
+            let total = 0;
+            cart.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerHTML = `
+                    <span>${item.name}</span>
+                    <span>£${item.price.toFixed(2)}</span>
+                `;
+                cartItems.appendChild(itemElement);
+                total += item.price;
+            });
+            
+            // Update total
+            cartTotal.textContent = total.toFixed(2);
+        }
+        
+        // Update checkout display
+        function updateCheckoutDisplay() {
+            const checkoutItems = document.getElementById('checkout-items');
+            const checkoutTotal = document.getElementById('checkout-total');
+            
+            // Clear current items
+            checkoutItems.innerHTML = '';
+            
+            // Add items to checkout display
+            let total = 0;
+            cart.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'order-item';
+                itemElement.innerHTML = `
+                    <span>${item.name}</span>
+                    <span>£${item.price.toFixed(2)}</span>
+                `;
+                checkoutItems.appendChild(itemElement);
+                total += item.price;
+            });
+            
+            // Update total
+            checkoutTotal.textContent = total.toFixed(2);
+        }
+        
+        // Initialize with home section visible
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('home');
+        });
+    </script>
+</body>
+</html>
